@@ -1,12 +1,12 @@
-FROM python:3.12-alpine3.16
+FROM python:3.12-alpine3.21
 
 COPY requirements.txt /temp/requirements.txt
 COPY service /service
 WORKDIR /service
 EXPOSE 8000
 
-RUN pip intall -r /temp/requirements.txt
+RUN pip install -r /temp/requirements.txt
 
-RUN adduser --disable-password mib
+RUN adduser --disabled-password mib
 
 USER mib
